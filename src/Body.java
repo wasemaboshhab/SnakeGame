@@ -14,10 +14,8 @@ public class Body implements Printable {
     }
 
     public void paint (Graphics graphics) {
-
         graphics.fillRect(x, y, width, height);
     }
-
     public int getX() {
         return x;
     }
@@ -48,21 +46,6 @@ public class Body implements Printable {
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-
-
-    public void moveRight(){
-        this.x+=Definitions.SNAKE_SPEED;
-    }
-    public void moveDown(){
-        this.y+=Definitions.SNAKE_SPEED;
-    }
-    public void moveLeft(){
-        this.x-=Definitions.SNAKE_SPEED;
-    }
-    public void moveUp(){
-        this.y-=Definitions.SNAKE_SPEED;
     }
 
 

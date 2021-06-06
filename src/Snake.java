@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Snake implements Printable {
-    private Body[] body; // should cast it to array !
+    private Body[] body;
     private boolean alive;
     private char direction ;
 
@@ -16,13 +16,18 @@ public class Snake implements Printable {
         if (isAlive()) {
             for (int i = 0; i < this.body.length; i++) {
                 if (i == 0) {
-                    g.setColor(Color.ORANGE);
+                    g.setColor(new Color	(139,69,19));
+                    body[i].paint(g);
+                } else if (i == 1 || i == 2) {
+                    g.setColor(new Color(160, 82, 45));
+                    body[i].paint(g);
+                } else if (i == 3 || i ==4) {
+                    g.setColor(new Color(205, 133, 63));
                     body[i].paint(g);
                 } else {
-                    g.setColor(Color.yellow);
+                    g.setColor(new Color(244, 164, 96));
                     body[i].paint(g);
                 }
-
             }
         } else
             gameOver(g);
@@ -54,11 +59,7 @@ public class Snake implements Printable {
     }
 
 
-    public void moveRight() {
 
-        this.body[0].moveRight();
-
-    }
 
     public void move() {
         for (int i = body.length - 1; i > 0; i--) {
@@ -87,27 +88,22 @@ public class Snake implements Printable {
     }
 
 
-    public void moveDown() {
 
-        this.body[0].moveDown();
 
-    }
 
-    public void moveLeft() {
-        this.body[0].moveLeft();
-    }
 
-    public void moveUp() {
 
-        this.body[0].moveUp();
 
-    }
+
 
     private void initBody() {
         this.body = new Body[]{
                 new Body(Definitions.START_BODY_X, Definitions.START_BODY_Y, Definitions.BODY_SIZE, Definitions.BODY_SIZE),
                 new Body(Definitions.START_BODY_X - Definitions.BODY_SIZE, Definitions.START_BODY_Y, Definitions.BODY_SIZE, Definitions.BODY_SIZE),
-                new Body(Definitions.START_BODY_X - 2 * Definitions.BODY_SIZE, Definitions.START_BODY_Y, Definitions.BODY_SIZE, Definitions.BODY_SIZE)
+                new Body(Definitions.START_BODY_X - 2 * Definitions.BODY_SIZE, Definitions.START_BODY_Y, Definitions.BODY_SIZE, Definitions.BODY_SIZE),
+//                new Body(Definitions.START_BODY_X - 3 * Definitions.BODY_SIZE, Definitions.START_BODY_Y, Definitions.BODY_SIZE, Definitions.BODY_SIZE),
+//                new Body(Definitions.START_BODY_X - 4 * Definitions.BODY_SIZE, Definitions.START_BODY_Y, Definitions.BODY_SIZE, Definitions.BODY_SIZE),
+//                new Body(Definitions.START_BODY_X - 5 * Definitions.BODY_SIZE, Definitions.START_BODY_Y, Definitions.BODY_SIZE, Definitions.BODY_SIZE)
         };
     }
 

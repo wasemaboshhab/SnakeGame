@@ -7,16 +7,9 @@ public class Food implements Printable {
     private int width;
     private int height;
 
-//    public Food(int x, int y, int width, int height) {
-//        this.x = x;
-//        this.y = y;
-//        this.width = width;
-//        this.height = height;
-//    }
 
     public Food() {
         newFood();
-
     }
 
     public void newFood() {
@@ -29,7 +22,8 @@ public class Food implements Printable {
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(Color.red);
+
+        g.setColor(new Color((255), 228, 181));
         g.fillOval(x, y, width, height);
 
 
