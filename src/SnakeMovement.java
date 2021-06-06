@@ -8,29 +8,17 @@ public class SnakeMovement implements KeyListener {
     private Snake snake;
     private GameScene gameScene;
 
-
-    public SnakeMovement(Snake snake, GameScene gameScene) {
-        this.snake = snake;
-        this.gameScene = gameScene;
-    }
-
     public SnakeMovement(GameScene gameScene) {
         this.gameScene = gameScene;
         this.snake = gameScene.getSnake();
     }
-
-
-    public void keyTyped(KeyEvent var1) {
-
-    }
-
     public void keyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getKeyCode()) {
-                case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_LEFT:
                 if (snake.getDirection() != 'R') {
                     snake.setDirection('L');
                 }
-                    break;case KeyEvent.VK_RIGHT:
+                break;case KeyEvent.VK_RIGHT:
                 if (snake.getDirection() != 'L') {
                     snake.setDirection('R');
                 }
@@ -51,6 +39,14 @@ public class SnakeMovement implements KeyListener {
 
     }
 
+
+
+
+
+
+    public void keyTyped(KeyEvent var1) {
+
+    }
     public void keyReleased(KeyEvent keyEvent) {
 
 

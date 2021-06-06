@@ -5,18 +5,6 @@ public class GameScene extends JPanel {
     private Snake snake;
     private Food food;
 
-    public GameScene(){
-        this.setBackground( new Color(32,32,32));
-        this.setDoubleBuffered(true);
-        this.snake = new Snake();
-        this.food = new Food();
-        this.gameLoop();
-    }
-    public void paint(Graphics graphics) {
-        super.paint(graphics);
-            this.snake.paint(graphics);
-        this.food.paint(graphics);
-    }
     private void gameLoop() {
         new Thread(() -> {
 
@@ -24,11 +12,11 @@ public class GameScene extends JPanel {
                 if (snake.isAlive()) {
                     snake.move();
                 }
-                checkCollisionWithLimits();
-                    if (collision(snake, food)){
-                        snake.setFoodEaten(snake.getFoodEaten() + 1);
-                        this.food.newFood();
-                        snake.increaseSnakeBody();
+                this.snake.checkCollisionWithLimits();
+                if (collision(snake, food)){
+                    snake.setFoodEaten(snake.getFoodEaten() + 1);
+                    this.food.newFood();
+                    snake.increaseSnakeBody();
                 }
                 repaint();
                 try {
@@ -40,12 +28,18 @@ public class GameScene extends JPanel {
         }).start();
     }
 
-    public Snake getSnake() {
-        return snake;
+    public GameScene(){
+        this.setBackground( new Color(32,32,32));
+        this.setDoubleBuffered(true);
+        this.snake = new Snake();
+        this.food = new Food();
+        this.gameLoop();
     }
 
-    public Food getFood() {
-        return food;
+    public void paint(Graphics graphics) {
+        super.paint(graphics);
+            this.snake.paint(graphics);
+        this.food.paint(graphics);
     }
 
     private boolean collision (Snake snake, Food food){
@@ -55,63 +49,13 @@ public class GameScene extends JPanel {
         Rectangle foodRectangle = new Rectangle(food.getX(), food.getY(), Definitions.FOOD_SIZE, Definitions.FOOD_SIZE);
         return snakeRectangle.intersects(foodRectangle);
     }
-    private void checkCollisionWithLimits() {
 
-        Body[] snakeBody = this.snake.getBody();
-        int snakeHeadX = snakeBody[0].getX();
-        int snakeHeadY = snakeBody[0].getY();
-
-
-        for (int i = 1; i < snakeBody.length - 1; i++) {
-            if ((snakeHeadX == snakeBody[i].getX()) && (snakeHeadY == snakeBody[i].getY())) {
-                this.snake.setAlive(false);
-            }
-        }
-
-        if (snakeHeadX < 0) {
-            this.snake.setAlive(false);
-        }
-
-        if (snakeHeadX > Definitions.WINDOW_WIDTH) {
-            this.snake.setAlive(false);
-        }
-
-        if (snakeHeadY < 0) {
-            this.snake.setAlive(false);
-        }
-
-        if (snakeHeadY > Definitions.WINDOW_HEIGHT) {
-            this.snake.setAlive(false);
-        }
-
+    public Snake getSnake() {
+        return snake;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public Food getFood() {
+        return food;
+    }
 
 
 
