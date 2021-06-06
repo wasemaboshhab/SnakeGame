@@ -14,7 +14,7 @@ public class Body implements Printable {
     }
 
     public void paint (Graphics graphics) {
-        graphics.fillRect(x, y, width, height);
+        graphics.fillOval(x, y, width, height);
     }
     public int getX() {
         return x;

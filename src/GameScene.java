@@ -5,8 +5,6 @@ public class GameScene extends JPanel {
     private Snake snake;
     private Food food;
 
-
-
     public GameScene(){
         this.setBackground( new Color(32,32,32));
         this.setDoubleBuffered(true);
@@ -19,32 +17,22 @@ public class GameScene extends JPanel {
             this.snake.paint(graphics);
         this.food.paint(graphics);
     }
-
-
     private void gameLoop() {
-
         new Thread(() -> {
-//            int increaseSpeed = 50;
-//            int foodEaten = 0;
+
             while (true) {
                 if (snake.isAlive()) {
                     snake.move();
                 }
                 checkCollisionWithLimits();
                     if (collision(snake, food)){
+                        snake.setFoodEaten(snake.getFoodEaten() + 1);
                         this.food.newFood();
                         snake.increaseSnakeBody();
-//                        foodEaten++;
                 }
-
                 repaint();
-//                if (foodEaten == 2) {
-//                    increaseSpeed = 30;
-//                }
-
                 try {
-
-                    Thread.sleep(75);
+                    Thread.sleep(this.snake.getSnakeSpeed());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -74,13 +62,11 @@ public class GameScene extends JPanel {
         int snakeHeadY = snakeBody[0].getY();
 
 
-        //check if should be length -1 or . length
         for (int i = 1; i < snakeBody.length - 1; i++) {
             if ((snakeHeadX == snakeBody[i].getX()) && (snakeHeadY == snakeBody[i].getY())) {
                 this.snake.setAlive(false);
             }
         }
-
 
         if (snakeHeadX < 0) {
             this.snake.setAlive(false);

@@ -3,13 +3,15 @@ public class Definitions {
     public static final int WINDOW_WIDTH = 600;
     public static final int WINDOW_HEIGHT = 600;
 
-    public static int START_BODY_X = 300;
+    public static final int START_BODY_X = 300;
     public static final int START_BODY_Y = 300;
-    public static final int BODY_SIZE = 20;
-//    public static final int BODY_WIDTH = 20;
-    public static final int FOOD_SIZE = 20;
-    public static final int SNAKE_SPEED = 15;
-    public static final int SNAKE_BODY_START_FROM = 3;
+    public static final int BODY_SIZE = 30;
+    public static final int SNAKE_HEAD = 0;
+    public static final int SNAKE_SPEED = 75;
+    public static final char DIRECTION = 'R';
+
+    public static final int FOOD_SIZE = 30;
+    public static final int FOOD_EATEN = 0;
 
 
 }
