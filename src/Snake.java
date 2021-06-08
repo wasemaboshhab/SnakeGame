@@ -122,7 +122,7 @@ public class Snake implements Printable {
             this.alive=false;
         }
 
-        if (snakeHeadX > Definitions.WINDOW_WIDTH) {
+        if (snakeHeadX > Definitions.WINDOW_WIDTH ) {
             this.alive=false;
         }
 
@@ -130,11 +130,13 @@ public class Snake implements Printable {
             this.alive=false;;
         }
 
-        if (snakeHeadY > Definitions.WINDOW_HEIGHT) {
+        if (snakeHeadY > Definitions.WINDOW_HEIGHT ) {
             this.alive=false;
         }
 
     }
+
+
 
     public Body[] getBody() {
         return body;

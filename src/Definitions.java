@@ -12,6 +12,8 @@ public class Definitions {
     public static final int HIGH_LEVEL = 2;
     public static final char DIRECTION = 'R';
     public static final int FOOD_SIZE = 25;
+    public static final int RANDOM_FOOD_X = 560;
+    public static final int RANDOM_FOOD_Y = 535;
 
 
 }

@@ -14,8 +14,8 @@ public class Food implements Printable {
 
     public void newFood() {
         Random random = new Random();
-        this.x = random.nextInt(Definitions.WINDOW_WIDTH - Definitions.FOOD_SIZE) + Definitions.FOOD_SIZE / 2;
-        this.y = (int) (random.nextInt((int) (Definitions.WINDOW_HEIGHT - Definitions.FOOD_SIZE * 3)) + 1.5 * Definitions.FOOD_SIZE);
+        this.x = random.nextInt(Definitions.RANDOM_FOOD_X ) ;
+        this.y = random.nextInt(Definitions.RANDOM_FOOD_Y) ;
         this.width = Definitions.FOOD_SIZE;
         this.height = Definitions.FOOD_SIZE;
     }
@@ -25,7 +25,6 @@ public class Food implements Printable {
 
         g.setColor(new Color((255), 228, 181));
         g.fillOval(x, y, width, height);
-
 
     }
 
